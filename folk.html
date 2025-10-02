@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Istanbul Dance Performance - Folk Dances</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+<script>
+  // Mobile menu toggle functionality
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuButton = document.getElementById('mobile-menu-button');
+    const isOpen = mobileMenu.classList.contains('hidden');
+      
+    if (isOpen) {
+      mobileMenu.classList.remove('hidden');
+      menuButton.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+    } else {
+      mobileMenu.classList.add('hidden');
+      menuButton.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>';
+    }
+  }
+
+  // Dropdown menu functionality
+  function toggleDropdown() {
+    const dropdown = document.getElementById('education-dropdown');
+    dropdown.classList.toggle('hidden');
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('education-dropdown');
+    const dropdownButton = document.getElementById('education-button');
+      
+    if (!dropdown.contains(event.target) && !dropdownButton.contains(event.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#CBA135",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#111111",
+                        "foreground-light": "#111111",
+                        "foreground-dark": "#f5f5f5",
+                        "subtle-light": "#e0e0e0",
+                        "subtle-dark": "#222222",
+                        "border-light": "#cccccc",
+                        "border-dark": "#333333"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark antialiased">
+<div class="flex flex-col min-h-screen">
+  <!-- NAVIGATION BAR START -->
+  <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a class="flex items-center gap-3" href="index.html">
+        <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+        </svg>
+        <span class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Istanbul Dance Performance</span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Anasayfa</a>
+        <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+        
+        <!-- Education Dropdown -->
+        <div class="relative">
+          <button id="education-button" onclick="toggleDropdown()" class="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+            Eğitimlerimiz
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="education-dropdown" class="hidden absolute top-full left-0 mt-2 w-56 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg shadow-lg">
+            <a href="sirtaki.html" class="block px-4 py-2 text-sm hover:bg-subtle-light dark:hover:bg-subtle-dark rounded-t-lg">Sirtaki & Zeybek</a>
+            <a href="folk.html" class="block px-4 py-2 text-sm hover:bg-subtle-light dark:hover:bg-subtle-dark text-primary">Folklor</a>
+            <a href="latin.html" class="block px-4 py-2 text-sm hover:bg-subtle-light dark:hover:bg-subtle-dark">Latin</a>
+            <a href="ballroom.html" class="block px-4 py-2 text-sm hover:bg-subtle-light dark:hover:bg-subtle-dark">Ballroom</a>
+            <a href="wedding.html" class="block px-4 py-2 text-sm hover:bg-subtle-light dark:hover:bg-subtle-dark rounded-b-lg">Düğün Dansları</a>
+          </div>
+        </div>
+        
+        <a class="text-sm font-medium hover:text-primary transition-colors" href="events.html">Etkinlikler</a>
+        <a class="text-sm font-medium hover:text-primary transition-colors" href="contact.html">İletişim</a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="md:hidden text-foreground-light dark:text-foreground-dark">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark">
+      <div class="px-6 py-4 space-y-4">
+        <a class="block text-sm font-medium hover:text-primary transition-colors" href="index.html">Anasayfa</a>
+        <a class="block text-sm font-medium hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+        <div class="space-y-2">
+          <p class="text-sm font-medium text-foreground-light/70 dark:text-foreground-dark/70">Eğitimlerimiz</p>
+          <div class="pl-4 space-y-2">
+            <a class="block text-sm hover:text-primary transition-colors" href="sirtaki.html">Sirtaki & Zeybek</a>
+            <a class="block text-sm text-primary transition-colors" href="folk.html">Folklor</a>
+            <a class="block text-sm hover:text-primary transition-colors" href="latin.html">Latin</a>
+            <a class="block text-sm hover:text-primary transition-colors" href="ballroom.html">Ballroom</a>
+            <a class="block text-sm hover:text-primary transition-colors" href="wedding.html">Düğün Dansları</a>
+          </div>
+        </div>
+        <a class="block text-sm font-medium hover:text-primary transition-colors" href="events.html">Etkinlikler</a>
+        <a class="block text-sm font-medium hover:text-primary transition-colors" href="contact.html">İletişim</a>
+      </div>
+    </div>
+  </header>
+  <!-- NAVIGATION BAR END -->
+  <!-- MAIN CONTENT START -->
+  <main class="flex-grow">
+    <!-- HERO SECTION START -->
+    <section class="py-16 sm:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground-light dark:text-foreground-dark">Halk Dansları Eğitimi</h1>
+          <p class="mt-6 text-lg text-foreground-light/70 dark:text-foreground-dark/70">
+            Anadolu’nun dört bir yanından derlenen halk danslarıyla hem kültürümüzü tanıyın hem de sahnede güçlü bir performans sergileyin. Zeybek’ten Horon’a, Roman’dan Halay’a geniş repertuarımızla tüm seviyelere uygun dersler sunuyoruz.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- HERO SECTION END -->
+    <!-- FOLK DANCE TYPES SECTION START -->
+    <section class="pb-16 sm:pb-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <!-- ZEYBEK DANCE -->
+          <div class="group flex flex-col bg-background-light dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-border-light dark:border-border-dark">
+            <div class="relative">
+              <div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLpkYLlP1k8plM1DuLRkMIqMieky-ulpDn4eItD2z5DthA7yj0t8Zbu4quKQL9WZrCHWCyKgN8sNphbeg27XjuuVPersjFMyHvw4xQ_csJP_7HE97QYQLm8uM5FWUVWMxfZ_puWK2dG41vYC4OpENNPTtwq3M3E_NFUBDK8-VTiut8geTe-gV34gUUKs0FsRWidosfgNLHkg0vrEaolsY6PPFuEqk1DbiZZWSRAsXoA1brz14nimF_Z6vUCcipaVVQX85rwogw8GI");'></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Zeybek</h3>
+                <p class="mt-2 text-sm text-foreground-light/80 dark:text-foreground-dark/80">Ege’nin gurur ve cesaret sembolü. Ağır ve kararlı adımlarıyla efe kültürünü yansıtan bu dans, özgürlüğün simgesidir.</p>
+              </div>
+            </div>
+          </div>
+          <!-- ROMAN DANCE -->
+          <div class="group flex flex-col bg-background-light dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-border-light dark:border-border-dark">
+            <div class="relative">
+              <div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD45xqD7YCucAOcCV9_h-J021mSqMm6ecZJ4r-872s2WsUb89bJysFYX7u5I4RD61AwQe-qRj0tDfYfUj2LFyIcZX5BUKt0Zl2dcwjKwDOYqgN1Jx66M9o7NNeGDxRnXwYEwjjsAfBekeD955PgisxmZXDXQ6PXkUuGnS998I5LGM_ROeLVkcQMr4dL02wetoyOosd-HqQCyYDTun0Cx2_n1OgzfgjFxTdDdywgSyrQgWlO0NX59NAJ8tn-plX6kc9zB9hMCd5pfZI");'></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Horon</h3>
+                <p class="mt-2 text-sm text-foreground-light/80 dark:text-foreground-dark/80">Karadeniz’in hırçın dalgalarını andıran hızlı adımlarıyla enerji dolu. Kemençe eşliğinde, dayanışma ve birlik duygusunu yansıtır.</p>
+              </div>
+            </div>
+          </div>
+          <!-- HORON DANCE -->
+          <div class="group flex flex-col bg-background-light dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-border-light dark:border-border-dark">
+            <div class="relative">
+              <div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeHmRcACR9CbVeC6okmYyokk8PRQaqrUTpGs4i1vazZk8AnBntCNMw6Plg8A8QrBJy0FgvBpbEqRgMgbAY_Pb9c1Q4TVac9EFXVwcTTyXYxFZ-o0sWEkkLm-sVBOUbEY5bqqa9XTU-_Ad8Gi1qjlaqhqtO5Q-2EggHbJ14fpPoFGUlkxZw2Br9BtYVHWCQMEZWc86_nmcsfDnFgIARQ8AWwgOSKB0vd6qvWxcxpI_Lj3zw6_XrPdlHND2hX9hp87BjZPiwO4VlFlc");'></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Roman</h3>
+                <p class="mt-2 text-sm text-foreground-light/80 dark:text-foreground-dark/80">Renkli figürleri ve doğaçlamaya dayalı hareketleriyle Marmara’nın eğlenceli yüzü. Ritmik davullar eşliğinde coşkulu bir performans sunar.</p>
+              </div>
+            </div>
+          </div>
+          <!-- KASAP DANCE -->
+          <div class="group flex flex-col bg-background-light dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-border-light dark:border-border-dark">
+            <div class="relative">
+              <div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8HPmDSTKnUU18b_Y7AEOsVnmUdYlkWInKeGD7VHem0Zfa_ZceR6aGGbzoyBTyqIw6DIAxDW8mbQLB76X1PNxNrdmec87g9nZkfssJoFS5cKLYGfmIkFKumGtZr7oS0AhbuXCU9Flj4nqk6Zuy_a0JwKPfAnRoNX9oy4MMcef-HcC4NKKWS4scmlx9Mm_nJE0T4DFkC1w3nhYJ_jyGWOvaZ9lOBx92yqPxPV9DyUpRsrOry-ZH-Dvc_TF4knioGVLkngGqG2OAAJg");'></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Kasap / Hasapiko </h3>
+                <p class="mt-2 text-sm text-foreground-light/80 dark:text-foreground-dark/80">Trakya kökenli, toplu uyum gerektiren adımlarıyla bilinen bir halk dansı. Hem sert hem de zarif figürleriyle sahnede görkemli bir duruş sergiler.</p>
+              </div>
+            </div>
+          </div>
+          <!-- SKIRT DANCE -->
+          <div class="group flex flex-col bg-background-light dark:bg-background-dark/50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-border-light dark:border-border-dark">
+            <div class="relative">
+              <div class="w-full aspect-square bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYjbJi8X22zzJa0stkuLH0FnpFktQZe-VSpff2aF_eqXYjOGttMB-vOTw8u4tHgVBbxTHmU3riSvhhZGfVuslceDzVltTc9Cj-jLxHf13EXm-DTuwceOa9BQp2_I6a6u1KyhC8VWyrsrm3p1jsfejPJQpF9kbT9d2Fua3JiVLNSfJ-SiVAYAhQTgVcm2MQR-gtMmy7dejw-F3Mrm7aCvNaa-apuCmIIwZcCkX2ifNpLnW55qAWMKVeHYvoCmMBaP9weKEfF0CPD1w");'></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">Halay / Kaşık Oyunları</h3>
+                <p class="mt-2 text-sm text-foreground-light/80 dark:text-foreground-dark/80">
+                  Anadolu’nun en yaygın halk dansı. Omuz omuza verilen birlik hissiyle, davul-zurna ritimlerinde toplu coşku ve dayanışma sembolüdür.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOLK DANCE TYPES SECTION END -->
+  </main>
+  <!-- MAIN CONTENT END -->
+  <!-- FOOTER START -->
+  <footer class="bg-subtle-light dark:bg-subtle-dark">
+    <div class="container mx-auto px-6 py-8">
+      <div class="flex flex-col items-center text-center">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="h-7 w-7 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+          </svg>
+          <span class="text-lg font-bold text-foreground-light dark:text-foreground-dark">Istanbul Dance Performance</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 my-4">
+          <a class="text-sm hover:text-primary transition-colors" href="index.html">Anasayfa</a>
+          <a class="text-sm hover:text-primary transition-colors" href="about.html">Hakkımızda</a>
+          <a class="text-sm hover:text-primary transition-colors" href="sirtaki.html">Sirtaki & Zeybek</a>
+          <a class="text-sm text-primary transition-colors" href="folk.html">Folklor</a>
+          <a class="text-sm hover:text-primary transition-colors" href="latin.html">Latin</a>
+          <a class="text-sm hover:text-primary transition-colors" href="ballroom.html">Ballroom</a>
+          <a class="text-sm hover:text-primary transition-colors" href="wedding.html">Düğün Dansları</a>
+          <a class="text-sm hover:text-primary transition-colors" href="events.html">Etkinlikler</a>
+          <a class="text-sm hover:text-primary transition-colors" href="contact.html">İletişim</a>
+        </div>
+        <div class="flex justify-center space-x-6 my-4">
+          <a class="text-foreground-light/70 dark:text-foreground-dark/70 hover:text-primary transition-colors" href="#">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path clip-rule="evenodd" d="M12.315 2c-5.204 0-9.422 4.218-9.422 9.422s4.218 9.422 9.422 9.422 9.422-4.218 9.422-9.422S17.519 2 12.315 2zm0 17.067c-4.225 0-7.645-3.42-7.645-7.645s3.42-7.645 7.645-7.645 7.645 3.42 7.645 7.645-3.42 7.645-7.645 7.645z" fill-rule="evenodd"></path>
+              <path d="M10.893 15.345l.135-.068c2.979-1.536 2.016-5.836 2.016-5.836s-3.795.344-5.32 2.378c0 0-2.31 4.792 3.169 3.526z"></path>
+              <path d="M13.256 12.19a.96.96 0 100-1.92.96.96 0 000 1.92z"></path>
+            </svg>
+          </a>
+          <a class="text-foreground-light/70 dark:text-foreground-dark/70 hover:text-primary transition-colors" href="#">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0016.398 3c-2.43 0-4.099 1.48-4.099 4.223v2.355H9.351v3.209h2.948v8.196h3.101z"></path>
+            </svg>
+          </a>
+          <a class="text-foreground-light/70 dark:text-foreground-dark/70 hover:text-primary transition-colors" href="#">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.22-1.95-.55v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.94.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21c7.35 0 11.37-6.1 11.37-11.37 0-.17 0-.34-.01-.51.78-.56 1.45-1.26 2-2.01z"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-sm text-foreground-light/60 dark:text-foreground-dark/60 mt-4">© 2025 Istanbul Dance Performance. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+</div>
+
+</body></html>
